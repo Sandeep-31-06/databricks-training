@@ -1,0 +1,48 @@
+-- 25. Select the department with the highest average salary
+SELECT department_id, AVG(salary) AS avg_salary FROM Employee
+GROUP BY department_id
+ORDER BY avg_salary DESC
+LIMIT 1;
+
+-- 26. Select departments with more than 2 employees
+SELECT department_id, COUNT(*) AS employee_count FROM Employee
+GROUP BY department_id
+HAVING COUNT(*) > 2;
+
+-- 27. Select departments with an average salary greater than 55000
+SELECT department_id, AVG(salary) AS avg_salary FROM Employee
+GROUP BY department_id
+HAVING AVG(salary) > 55000;
+
+-- 28. Select years with more than 1 employee hired
+SELECT YEAR(hire_date) AS hire_year, COUNT(*) AS employee_count FROM Employee
+GROUP BY YEAR(hire_date)
+HAVING COUNT(*) > 1;
+
+-- 29. Select departments with a total salary expense less than 100000
+SELECT department_id, SUM(salary) AS total_salary FROM Employee
+GROUP BY department_id
+HAVING SUM(salary) < 100000;
+
+-- 30. Select departments with the maximum salary above 75000
+SELECT department_id, MAX(salary) AS max_salary FROM Employee
+GROUP BY department_id
+HAVING MAX(salary) > 75000;
+
+-- 31. Select all employees ordered by salary ascending
+SELECT * FROM Employee ORDER BY salary ASC;
+
+-- 32. Select all employees ordered by age descending
+SELECT * FROM Employee ORDER BY age DESC;
+
+-- 33. Select all employees ordered by hire date ascending
+SELECT * FROM Employee ORDER BY hire_date ASC;
+
+-- 34. Select employees ordered by department and salary
+SELECT * FROM Employee ORDER BY department_id, salary;
+
+-- 35. Select departments ordered by total salary
+SELECT department_id, SUM(salary) AS total_salary FROM Employee
+GROUP BY department_id
+ORDER BY total_salary DESC;
+
